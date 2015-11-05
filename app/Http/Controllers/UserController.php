@@ -30,6 +30,11 @@ class UserController extends Controller
 
     }
 
+    public function home()
+    {
+        return 'You are in home';
+    }
+
     public function fbcallback(Facebook $fb)
     {
         try {
@@ -60,17 +65,39 @@ class UserController extends Controller
         $name = $user['name'];
         $email = $user['email'];
 
-        $UserDetails = new User();
-        $UserDetails->facebook_user_id = $fbid;
-        $UserDetails->full_name = $name;
-        $UserDetails->email = $email;
-        $UserDetails->save();
+        $checkUser = User::where('facebook_user_id', '=', $fbid);
+        $cntUser = $checkUser->count();
+        if($cntUser > 0)
+        {
+            if($checkUser->first()->registration == 0)
+            {
+                Session::put('fbid', $fbid);
+                Session::put('fbname', $name);
 
-        Session::put('fbid', $fbid);
-        Session::put('fbname', $name);
+                return redirect('register');
+            }
+            else
+            {
+                return redirect('home');
+            }
+        }
+        else
+        {
+            $UserDetails = new User();
+            $UserDetails->facebook_user_id = $fbid;
+            $UserDetails->full_name = $name;
+            $UserDetails->email = $email;
+            $UserDetails->save();
 
-        return redirect('register');
+            Session::put('fbid', $fbid);
+            Session::put('fbname', $name);
+
+            return redirect('register');
+        }
+        
     }
+
+
     /**
      * Show the form for creating a new resource.
      *
@@ -114,10 +141,11 @@ class UserController extends Controller
                         "year" => $year,
                         "mobile" => $mobile,
                         "por" => $por,
-                        "question" => $question
+                        "question" => $question,
+                        "registration" => 1
                     ));
 
-        return 'Successfully registered';
+        return redirect('home')->with('message', 'Successfully registered!!!');
     }
 
     /**

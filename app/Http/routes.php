@@ -18,3 +18,6 @@ Route::get('/facebook/callback', "UserController@fbcallback");
 Route::get('/register', "UserController@create");
 
 Route::post('/register', "UserController@store");
+
+Route::get('/home', "UserController@home");
+

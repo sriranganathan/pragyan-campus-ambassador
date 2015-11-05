@@ -26,6 +26,8 @@ class Users extends Migration
             $table->string('email', 300);
             $table->string('por', 500);
             $table->string('question', 1200);
+            $table->integer('registration')->default(0);
+            $table->integer('approved')->default(0);
             $table->timestamp('created_at');
             $table->timestamp('updated_at');
         });
