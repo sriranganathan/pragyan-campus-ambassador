@@ -1,12 +1,13 @@
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
+    "name": "Pragyan Campus Ambassador",
+    "description": "Laravel app",
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "type": "project",
     "require": {
         "php": ">=5.5.9",
-        "laravel/framework": "5.1.*"
+        "laravel/framework": "5.1.*",
+        "sammyk/laravel-facebook-sdk": "~3.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
