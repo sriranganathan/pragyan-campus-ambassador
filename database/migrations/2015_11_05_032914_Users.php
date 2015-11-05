@@ -26,8 +26,8 @@ class Users extends Migration
             $table->string('email', 300);
             $table->string('por', 500);
             $table->string('question', 1200);
-            $table->timestamp('created_at')
-                    ->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('created_at');
+            $table->timestamp('updated_at');
         });
     }
 

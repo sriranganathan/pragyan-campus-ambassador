@@ -58,6 +58,12 @@
     </nav>
 
     @yield('content')
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <p>Made with &hearts; by <a href="http://delta.nitt.edu">Delta Force</a></p>
+        </div>
+    </footer>
     <!-- jQuery -->
     <script src="{{asset('js/jquery.js')}}"></script>
 
