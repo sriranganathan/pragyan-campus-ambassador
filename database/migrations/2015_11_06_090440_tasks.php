@@ -15,8 +15,8 @@ class Tasks extends Migration
         //
         Schema::create('tasks', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
-            $table->string('description');
+            $table->string('title', 500);
+            $table->string('description', 2500);
             $table->timestamp('created_at');
             $table->timestamp('updated_at');
         });

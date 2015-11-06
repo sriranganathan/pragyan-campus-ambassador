@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+
+use App\Tasks as Tasks;
+
 class TasksController extends Controller
 {
     /**
@@ -17,6 +20,9 @@ class TasksController extends Controller
     public function index()
     {
         //
+        $tasks = Tasks::all();
+
+        return view('tasks/index', array("tasks" => $tasks));
     }
 
     /**
@@ -39,6 +45,18 @@ class TasksController extends Controller
     public function store(Request $request)
     {
         //
+        $title = $request->get('title');
+        $description = $request->get('description');
+
+        $tasks = new Tasks();
+
+        $tasks->title = $title;
+        $tasks->description = $description;
+
+        $tasks->save();
+
+        return redirect('tasks')->with('message', 'Task added successfully!!!');
+
     }
 
     /**
