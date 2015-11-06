@@ -21,3 +21,4 @@ Route::post('/register', "UserController@store");
 
 Route::get('/home', "UserController@home");
 
+Route::get('/tasks/create', "TasksController@create");
