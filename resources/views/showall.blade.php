@@ -20,8 +20,8 @@ Email : {{$user->email}}
 <div class="col-sm-3">
 
 <button class= "btn btn-primary" data-toggle="modal" data-target="#modal{{$user->id}}">See questionnaire</button>
-<button class= "btn btn-success">Approve</button>
-<button class= "btn btn-danger">Reject</button>
+<a href={{ action('UserController@approve', array("id"=>$user->id)) }}><button class= "btn btn-success">Approve</button></a>
+<a href={{ action('UserController@reject', array("id"=>$user->id)) }}><button class= "btn btn-danger">Reject</button></a>
 </div>
 </div>
 </div>

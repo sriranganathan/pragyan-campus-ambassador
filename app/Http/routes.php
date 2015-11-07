@@ -15,6 +15,10 @@ Route::get('/', 'UserController@index');
 
 Route::get('/users', 'UserController@show');
 
+Route::get('/users/approve/{id}', 'UserController@approve');
+
+Route::get('/users/reject/{id}', 'UserController@reject');
+
 Route::get('/facebook/callback', "UserController@fbcallback");
 
 Route::get('/register', "UserController@create");

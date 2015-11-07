@@ -163,15 +163,31 @@ class UserController extends Controller
 
     }
 
+
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function approve($id)
     {
         //
+        User::where('id', $id)
+            ->update(array(
+                    "approved"=>1
+                ));
+        return redirect('users');
+    }
+
+    public function reject($id)
+    {
+        User::where('id', $id)
+            ->update(array(
+                    "approved"=>2
+                ));
+
+        return redirect('users');
     }
 
     /**
