@@ -154,9 +154,13 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
         //
+        $users = User::orderBy("updated_at", "desc")->paginate(10);
+
+        return view('showall', compact('users'));
+
     }
 
     /**

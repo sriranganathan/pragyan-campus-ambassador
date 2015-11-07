@@ -13,6 +13,8 @@
 
 Route::get('/', 'UserController@index');
 
+Route::get('/users', 'UserController@show');
+
 Route::get('/facebook/callback', "UserController@fbcallback");
 
 Route::get('/register', "UserController@create");

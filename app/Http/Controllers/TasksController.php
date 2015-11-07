@@ -20,9 +20,9 @@ class TasksController extends Controller
     public function index()
     {
         //
-        $tasks = Tasks::all();
+        $tasks = Tasks::orderBy("created_at", "desc")->paginate(10);
 
-        return view('tasks/index', array("tasks" => $tasks));
+        return view('tasks/index', compact('tasks'));
     }
 
     /**

@@ -29,6 +29,16 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <style>
+    .panel-body
+    {
+        color:black;
+    }
+    .modal-content
+    {
+        color:black;
+    }
+    </style>
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
