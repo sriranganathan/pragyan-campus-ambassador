@@ -17,11 +17,15 @@ Route::get('/admin', 'UserController@admin');
 
 Route::post('/admin', 'UserController@adminCheck');
 
-Route::get('/admin/logout', 'UserController@adminLogout');
+Route::get('/logout', 'UserController@logout');
 
 Route::group(['middleware' => 'AdminAuth'], function() {
 
+	Route::get('/admin/dashboard', 'UserController@adminDash');
 	Route::get('/users', 'UserController@show');
+	Route::get('/users/new', 'UserController@showNew');
+	Route::get('/users/approved', 'UserController@showApproved');
+	Route::get('/users/rejected', 'UserController@showRejected');
 
 	Route::get('/users/approve/{id}', 'UserController@approve');
 
@@ -35,12 +39,16 @@ Route::group(['middleware' => 'AdminAuth'], function() {
 
 Route::get('/facebook/callback', "UserController@fbcallback");
 Route::group(['middleware' => 'RegisteredAuth'], function() {
-	Route::get('/register', "UserController@create");
+	
+
+	Route::get('/dashboard', "UserController@dashboard");
 });
+
+Route::get('/register', "UserController@create");
 
 Route::post('/register', "UserController@store");
 
-Route::get('/home', "UserController@home");
+
 
 
 Route::group(['middleware' => 'ApprovedAuth'], function() {

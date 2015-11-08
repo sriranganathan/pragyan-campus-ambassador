@@ -24,11 +24,12 @@ class RegisteredAuth
         }
         if(Session::has('fbid'))
         {
-            $user = User::where('facebook_user_id', $fbid)->first();
-            if($user->registration == 0)
+            $fbid = Session::get('fbid');
+            $user = User::where('facebook_user_id', $fbid )->first();
+            if($user->registration != 0)
                 return $next($request);
             else
-                return Redirect::to('/');
+                return Redirect::to('/register');
 
         }
         else

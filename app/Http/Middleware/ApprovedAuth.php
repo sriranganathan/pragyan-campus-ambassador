@@ -26,15 +26,16 @@ class ApprovedAuth
 
         if(Session::has('fbid'))
         {
+            $fbid = Session::get('fbid');
             $user = User::where('facebook_user_id', $fbid)->first();
             if($user->registration == 1 && $user->approved == 1)
                 return $next($request);
             else
-                return Redirect::to('/register');
+                return Redirect::to('/dashboard');
         }
         else
         {
-            return Redirect::to('/register');
+            return Redirect::to('/');
         }
     }
 }

@@ -1,5 +1,26 @@
 @extends('base')
+@section('topbar')
 
+<li class="hidden">
+    <a href="#page-top"></a>
+</li>
+<li>
+    <a href={{action('UserController@index')}}>Home</a>
+</li>
+
+@if (Session::has('admin')||Session::has('fbid'))
+<li>    
+    <a href={{action('UserController@dashboard')}}>Dashboard</a>
+</li>
+<li>    
+    <a href={{action('UserController@logout')}}>Logout</a>
+</li>
+@else
+<li>
+    <a class="page-scroll" href="#register">Register</a>
+</li>
+@endif
+@stop
 @section('content')
 	<section id="about" class="container content-section">
         <div class="row">

@@ -1,5 +1,28 @@
 @extends('base')
 
+@section('topbar')
+
+<li class="hidden">
+    <a href="#page-top"></a>
+</li>
+<li>
+    <a href={{action('UserController@index')}}>Home</a>
+</li>
+
+@if (Session::has('admin')||Session::has('fbid'))
+<li>    
+    <a href={{action('UserController@dashboard')}}>Dashboard</a>
+</li>
+<li>    
+    <a href={{action('UserController@logout')}}>Logout</a>
+</li>
+@else
+<li>
+    <a class="page-scroll" href="#register">Register</a>
+</li>
+@endif
+@stop
+
 @section('content')
 
 <section class="container content-section">
@@ -20,8 +43,14 @@ Email : {{$user->email}}
 <div class="col-sm-3">
 
 <button class= "btn btn-primary" data-toggle="modal" data-target="#modal{{$user->id}}">See questionnaire</button>
+@if($user->approved == 0)
 <a href={{ action('UserController@approve', array("id"=>$user->id)) }}><button class= "btn btn-success">Approve</button></a>
 <a href={{ action('UserController@reject', array("id"=>$user->id)) }}><button class= "btn btn-danger">Reject</button></a>
+@elseif($user->approved == 1)
+<a href={{ action('UserController@reject', array("id"=>$user->id)) }}><button class= "btn btn-danger">Reject</button></a>
+@else
+<a href={{ action('UserController@approve', array("id"=>$user->id)) }}><button class= "btn btn-success">Approve</button></a>
+@endif
 </div>
 </div>
 </div>

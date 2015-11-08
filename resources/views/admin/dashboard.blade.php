@@ -24,26 +24,26 @@
 @stop
 
 @section('content')
-
 	<section class="container content-section">
+	<h3>
+	Hi, Admin
+	</h3>
+	Here are the list of operations you can do...
+	<li>
+	<a href={{action('TasksController@create')}}>Create new tasks</a>
+	</li>
 
-	<div class="row">
-	@foreach($tasks as $task)
-	<div class="panel panel-primary">
-		<div class="panel-heading">
-				{{$task->title}}
-		</div>
-		<div class="panel-body">
-			<b>Posted on : {{$task->created_at}}</b>
-			<br>
-			
-			{!! str_replace("\n","<br>", $task->description) !!} 
+	<li>
+	<a href={{action('UserController@show')}}>Approve/reject users</a>
+	</li>
 
-		</div>
-	</div>
-	@endforeach
-	</div>
-{!! $tasks->render() !!}
+	<li>
+	<a href={{action('UserController@showApproved')}}>Approved users</a>
+	</li>
+
+	<li>
+	<a href={{action('UserController@showRejected')}}>Rejected users</a>
+	</li>
 	</section>
 
 @stop

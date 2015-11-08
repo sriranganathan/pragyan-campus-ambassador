@@ -6,17 +6,27 @@
     <a href="#page-top"></a>
 </li>
 <li>
-    <a class="page-scroll" href="#about">About</a>
+    <a class="page-scroll" href="#about">Intro</a>
 </li>
 <li>
-    <a class="page-scroll" href="#download">Download</a>
+    <a class="page-scroll" href="#download">About</a>
 </li>
 <li>
-    <a class="page-scroll" href="#contact">Contact</a>
+    <a class="page-scroll" href="#contact">Benefits</a>
 </li>
+
+@if (Session::has('admin')||Session::has('fbid'))
+<li>    
+    <a href={{action('UserController@dashboard')}}>Dashboard</a>
+</li>
+<li>    
+    <a href={{action('UserController@logout')}}>Logout</a>
+</li>
+@else
 <li>
-    <a class="page-scroll" href="#register">Register</a>
+    <a class="page-scroll" href="#register">Register/Login</a>
 </li>
+@endif
 @stop
 
 @section('content')
@@ -42,73 +52,59 @@
     <section id="about" class="container content-section text-center">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
-                <h2>About Grayscale</h2>
-                <p>Grayscale is a free Bootstrap 3 theme created by Start Bootstrap. It can be yours right now, simply download the template on <a href="http://startbootstrap.com/template-overviews/grayscale/">the preview page</a>. The theme is open source, and you can use it for any purpose, personal or commercial.</p>
-                <p>This theme features stock photos by <a href="http://gratisography.com/">Gratisography</a> along with a custom Google Maps skin courtesy of <a href="http://snazzymaps.com/">Snazzy Maps</a>.</p>
-                <p>Grayscale includes full HTML, CSS, and custom JavaScript files along with LESS files for easy customization.</p>
+                <h2>Brief introduction</h2>
+                <p>Pragyan is the annual International Tech-management event conducted by the National
+Institute of Technology Tiruchirappalli. During the month of January or February, students
+from over 150+ colleges around India, make their mark in this event through the various
+Coding, Robotics, Management, Core Engineering, Paper presentations and much more
+events.</p>
+<p>Pragyan this year offers the opportunity for students from colleges around India, to have
+a role that defines the very event manner of Pragyan. A representative from each college
+will be chosen to promote and publicize their college for Pragyan.</p>
             </div>
         </div>
     </section>
 
     <!-- Download Section -->
-    <section id="download" class="content-section text-center">
+    <section id="download" class="content-section">
         <div class="download-section">
             <div class="container">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <h2>Download Grayscale</h2>
-                    <p>You can download Grayscale for free on the preview page at Start Bootstrap.</p>
-                    <a href="http://startbootstrap.com/template-overviews/grayscale/" class="btn btn-default btn-lg">Visit Download Page</a>
+                    <center><h2>Why should you be the Campus Ambassador for Pragyan?</h2></center>
+                    <li>Spread the information regarding Pragyan in their college in order for the college to
+achieve the maximum participation level possible.</li>
+<li>Promote Pragyan through social media such as Facebook, Twitter and YouTube etc. to
+enhance the quality of Pragyan’s overall participation.</li>
+<li>Coordinate with Pragyan Publicity Team & other campus ambassadors to spread
+awareness about events of Pragyan on various websites.</li>
+<li>Provide contacts of all the technical/management/quizzing clubs of the college to give
+your college a chance to test their mettle among 150+ more colleges.</li>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="container content-section text-center">
+    <section id="contact" class="container content-section ">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
-                <h2>Contact Start Bootstrap</h2>
-                <p>Feel free to email us to provide some feedback on our templates, give us suggestions for new templates and themes, or to just say hello!</p>
-                <p><a href="mailto:feedback@startbootstrap.com">feedback@startbootstrap.com</a>
-                </p>
-                <ul class="list-inline banner-social-buttons">
-                    <li>
-                        <a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/IronSummitMedia/startbootstrap" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
-                    </li>
-                    <li>
-                        <a href="https://plus.google.com/+Startbootstrap/posts" class="btn btn-default btn-lg"><i class="fa fa-google-plus fa-fw"></i> <span class="network-name">Google+</span></a>
-                    </li>
-                </ul>
+                <center><h2>Benefits of being a campus ambassador</h2></center>
+                <li>Opportunity to collaborate with, and be a part of a network of thousands of students
+from across the country.</li>
+<li>Certificate of Appreciation from Pragyan.</li>
+<li>Unique opportunity for students to enhance their skills in the fields of leadership,
+publicity, marketing, networking, and maintaining public relations at a national level.</li>
+<li>Benefits on services such as travels, restaurants, application charges etc. during the
+course of work for the Campus Ambassador program.</li>
+<li>4 campus ambassador shall be chosen to be the BEST Campus Ambassadors every
+month.</li>
             </div>
         </div>
     </section>
-
-    <section id="contact" class="container content-section text-center">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
-                <h2>Contact Start Bootstrap</h2>
-                <p>Feel free to email us to provide some feedback on our templates, give us suggestions for new templates and themes, or to just say hello!</p>
-                <p><a href="mailto:feedback@startbootstrap.com">feedback@startbootstrap.com</a>
-                </p>
-                <ul class="list-inline banner-social-buttons">
-                    <li>
-                        <a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/IronSummitMedia/startbootstrap" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
-                    </li>
-                    <li>
-                        <a href="https://plus.google.com/+Startbootstrap/posts" class="btn btn-default btn-lg"><i class="fa fa-google-plus fa-fw"></i> <span class="network-name">Google+</span></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section id="register" class="container content-section text-center">
+@if (Session::has('admin')||Session::has('fbid'))
+ 
+@else
+<section id="register" class="container content-section text-center">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
                 <h2>Register to be a campus ambassador</h2>
@@ -118,6 +114,8 @@
             </div>
         </div>
     </section>
+@endif
+    
 
     
 

@@ -30,9 +30,13 @@ class UserController extends Controller
 
     }
 
-    public function home()
+    public function dashboard()
     {
-        return 'You are in home';
+        if(Session::has('admin'))
+            return redirect('admin/dashboard');
+        $fbid = Session::get('fbid');
+        $user = User::where('facebook_user_id', $fbid)->first();
+        return view('dashboard', compact('user'));
     }
 
     public function fbcallback(Facebook $fb)
@@ -78,7 +82,10 @@ class UserController extends Controller
             }
             else
             {
-                return redirect('home');
+                Session::put('fbid', $fbid);
+                Session::put('fbname', $name);
+
+                return redirect('dashboard');
             }
         }
         else
@@ -109,7 +116,12 @@ class UserController extends Controller
         {
             $fbid = Session::get('fbid');
             $fbname = Session::get('fbname');
+            $checkUser = User::where('facebook_user_id', '=', $fbid);
 
+            if($checkUser->first()->registration != 0)
+            {
+                return redirect('dashboard');
+            }
             return view('registration', array('fbname'=>$fbname));
         }
         else
@@ -126,6 +138,9 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //
+        if(!Session::has('fbid'))
+            return redirect('/');
+
         $college = $request->get('college');
         $city = $request->get('city');
         $dept = $request->get('dept');
@@ -148,7 +163,7 @@ class UserController extends Controller
                         "registration" => 1
                     ));
 
-        return redirect('home')->with('message', 'Successfully registered!!!');
+        return redirect('dashboard')->with('message', 'Successfully registered!!!');
     }
 
     /**
@@ -165,6 +180,32 @@ class UserController extends Controller
         return view('showall', compact('users'));
 
     }
+    public function showNew()
+    {
+        //
+        $users = User::where('approved', 0)->orderBy("updated_at", "desc")->paginate(10);
+
+        return view('showall', compact('users'));
+
+    }
+    public function showApproved()
+    {
+        //
+        $users = User::where('approved', 1)->orderBy("updated_at", "desc")->paginate(10);
+
+        return view('showall', compact('users'));
+
+    }
+
+    public function showRejected()
+    {
+        //
+        $users = User::where('approved', 2)->orderBy("updated_at", "desc")->paginate(10);
+
+        return view('showall', compact('users'));
+
+    }
+
 
 
     /**
@@ -203,6 +244,8 @@ class UserController extends Controller
 
     public function admin()
     {
+        if(Session::has('admin'))
+            return redirect('admin/dashboard');
         return view('admin/login');
     }
 
@@ -214,15 +257,19 @@ class UserController extends Controller
         if($username == env('ADMIN_USERNAME') && $password == env('ADMIN_PASSWORD'))
         {
             Session::put('admin', $username);
-            return redirect('/users');
+            return redirect('/admin/dashboard');
         }
         else
             return redirect('/admin')->with('message', 'Incorrect username or password');
     }
 
-    public function adminLogout()
+    public function adminDash()
     {
-        Session::forget('admin');
+        return view('admin/dashboard');
+    }
+    public function logout()
+    {
+        Session::flush();
         return redirect('/')->with('message', 'Successfully logged out');
     }
     public function update(Request $request, $id)
