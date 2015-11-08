@@ -13,22 +13,30 @@
 
 Route::get('/', 'UserController@index');
 
-Route::get('/users', 'UserController@show');
+Route::group(['middleware' => 'AdminAuth'], function() {
 
-Route::get('/users/approve/{id}', 'UserController@approve');
+	Route::get('/users', 'UserController@show');
 
-Route::get('/users/reject/{id}', 'UserController@reject');
+	Route::get('/users/approve/{id}', 'UserController@approve');
+
+	Route::get('/users/reject/{id}', 'UserController@reject');
+
+	Route::get('/tasks/create', "TasksController@create");
+
+	Route::post('/tasks/create', "TasksController@store");
+});
+
 
 Route::get('/facebook/callback', "UserController@fbcallback");
-
-Route::get('/register', "UserController@create");
+Route::group(['middleware' => 'RegisteredAuth'], function() {
+	Route::get('/register', "UserController@create");
+});
 
 Route::post('/register', "UserController@store");
 
 Route::get('/home', "UserController@home");
 
-Route::get('/tasks/create', "TasksController@create");
 
-Route::post('/tasks/create', "TasksController@store");
-
-Route::get('/tasks', "TasksController@index");
+Route::group(['middleware' => 'ApprovedAuth'], function() {
+	Route::get('/tasks', "TasksController@index");
+});

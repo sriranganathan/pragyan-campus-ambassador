@@ -94,7 +94,6 @@ class UserController extends Controller
 
             return redirect('register');
         }
-        
     }
 
 
@@ -106,11 +105,15 @@ class UserController extends Controller
     public function create()
     {
         //
+        if(Session::has('fbid'))
+        {
+            $fbid = Session::get('fbid');
+            $fbname = Session::get('fbname');
 
-        $fbid = Session::get('fbid');
-        $fbname = Session::get('fbname');
-
-        return view('registration', array('fbname'=>$fbname));
+            return view('registration', array('fbname'=>$fbname));
+        }
+        else
+            return redirect('/');
 
     }
 

@@ -23,11 +23,11 @@ class ApprovedAuth
             if($user->registration == 1 && $user->approved == 1)
                 return $next($request);
             else
-                return Redirect::to('/');
+                return Redirect::to('/register');
         }
         else
         {
-            return Redirect::to('/');
+            return Redirect::to('/register');
         }
     }
 }
