@@ -200,6 +200,31 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    public function admin()
+    {
+        return view('admin/login');
+    }
+
+    public function adminCheck(Request $request)
+    {
+        $username = $request->get('username');
+        $password = $request->get('password');
+
+        if($username == env('ADMIN_USERNAME') && $password == env('ADMIN_PASSWORD'))
+        {
+            Session::put('admin', $username);
+            return redirect('/users');
+        }
+        else
+            return redirect('/admin')->with('message', 'Incorrect username or password');
+    }
+
+    public function adminLogout()
+    {
+        Session::forget('admin');
+        return redirect('/')->with('message', 'Successfully logged out');
+    }
     public function update(Request $request, $id)
     {
         //

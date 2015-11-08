@@ -13,6 +13,12 @@
 
 Route::get('/', 'UserController@index');
 
+Route::get('/admin', 'UserController@admin');
+
+Route::post('/admin', 'UserController@adminCheck');
+
+Route::get('/admin/logout', 'UserController@adminLogout');
+
 Route::group(['middleware' => 'AdminAuth'], function() {
 
 	Route::get('/users', 'UserController@show');
