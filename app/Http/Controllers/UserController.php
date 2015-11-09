@@ -146,6 +146,7 @@ class UserController extends Controller
         $dept = $request->get('dept');
         $year = $request->get('year');
         $mobile = $request->get('mobile');
+        $email = $request->get('email');
         $por = $request->get('por');
         $question = $request->get('question');
 
@@ -159,6 +160,7 @@ class UserController extends Controller
                         "year" => $year,
                         "mobile" => $mobile,
                         "por" => $por,
+                        "email" => $email,
                         "question" => $question,
                         "registration" => 1
                     ));

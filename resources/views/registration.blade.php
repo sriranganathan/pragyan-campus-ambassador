@@ -38,7 +38,7 @@
     </div>
   </div>
   <div class="form-group">
-    <label class="control-label col-sm-2" for="city"><center>Ciity</center></label>
+    <label class="control-label col-sm-2" for="city"><center>City</center></label>
     <div class="col-sm-6">
       <input type="text" class="form-control" name="city" placeholder="City" required>
     </div>
@@ -61,7 +61,14 @@
   <div class="form-group">
     <label class="control-label col-sm-2" for="mobile"><center>Mobile Number</center></label>
     <div class="col-sm-6">
-      <input type="text" class="form-control" name="mobile" placeholder="Mobile Number" required>
+      <input type="text" class="form-control" name="mobile" placeholder="Mobile Number" pattern=[0-9]{10} required>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="email"><center>Email</center></label>
+    <div class="col-sm-6">
+      <input type="email" class="form-control" name="email" placeholder="Email" required>
     </div>
   </div>
 

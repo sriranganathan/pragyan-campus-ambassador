@@ -71,13 +71,13 @@ will be chosen to promote and publicize their college for Pragyan.</p>
             <div class="container">
                 <div class="col-lg-8 col-lg-offset-2">
                     <center><h2>Why should you be the Campus Ambassador for Pragyan?</h2></center>
-                    <li>Spread the information regarding Pragyan in their college in order for the college to
+                    <li class="yes">Spread the information regarding Pragyan in their college in order for the college to
 achieve the maximum participation level possible.</li>
-<li>Promote Pragyan through social media such as Facebook, Twitter and YouTube etc. to
+<li class="yes">Promote Pragyan through social media such as Facebook, Twitter and YouTube etc. to
 enhance the quality of Pragyan’s overall participation.</li>
-<li>Coordinate with Pragyan Publicity Team & other campus ambassadors to spread
+<li class="yes">Coordinate with Pragyan Publicity Team & other campus ambassadors to spread
 awareness about events of Pragyan on various websites.</li>
-<li>Provide contacts of all the technical/management/quizzing clubs of the college to give
+<li class="yes">Provide contacts of all the technical/management/quizzing clubs of the college to give
 your college a chance to test their mettle among 150+ more colleges.</li>
                 </div>
             </div>
@@ -89,14 +89,14 @@ your college a chance to test their mettle among 150+ more colleges.</li>
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
                 <center><h2>Benefits of being a campus ambassador</h2></center>
-                <li>Opportunity to collaborate with, and be a part of a network of thousands of students
+                <li class="yes">Opportunity to collaborate with, and be a part of a network of thousands of students
 from across the country.</li>
-<li>Certificate of Appreciation from Pragyan.</li>
-<li>Unique opportunity for students to enhance their skills in the fields of leadership,
+<li class="yes">Certificate of Appreciation from Pragyan.</li>
+<li class="yes">Unique opportunity for students to enhance their skills in the fields of leadership,
 publicity, marketing, networking, and maintaining public relations at a national level.</li>
-<li>Benefits on services such as travels, restaurants, application charges etc. during the
+<li class="yes">Benefits on services such as travels, restaurants, application charges etc. during the
 course of work for the Campus Ambassador program.</li>
-<li>4 campus ambassador shall be chosen to be the BEST Campus Ambassadors every
+<li class="yes">4 campus ambassador shall be chosen to be the BEST Campus Ambassadors every
 month.</li>
             </div>
         </div>
