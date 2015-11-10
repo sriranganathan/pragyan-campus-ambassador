@@ -34,7 +34,7 @@
 	</li>
 
 	<li>
-	<a href={{action('UserController@show')}}>Approve/reject users</a>
+	<a href={{action('UserController@showNew')}}>Approve/reject users</a>
 	</li>
 
 	<li>

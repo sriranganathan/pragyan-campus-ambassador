@@ -21,7 +21,7 @@ class TasksController extends Controller
     {
         //
         $tasks = Tasks::orderBy("created_at", "desc")->paginate(10);
-
+	$tasks->setPath('tasks');
         return view('tasks/index', compact('tasks'));
     }
 
