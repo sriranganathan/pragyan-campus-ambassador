@@ -82,7 +82,7 @@
   <div class="form-group">
     <label class="control-label col-sm-2" for="question"><center>Why are you applying for this post? </center></label>
     <div class="col-sm-6">
-      <textarea class="form-control" name="por" placeholder="Why are you applying for this post?" rows="5" required></textarea>
+      <textarea class="form-control" name="question" placeholder="Why are you applying for this post?" rows="5" required></textarea>
     </div>
   </div>
 
