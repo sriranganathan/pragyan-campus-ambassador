@@ -34,15 +34,15 @@
 	</li>
 	@elseif($user->approved == 0)
 	<li>
-		Your request is not yet approved. Please come back sometime...
+		You have successfully completed your registration. We will notify you when we process your registration.
 	</li>
 	@elseif($user->approved == 2)
 	<li>
-		Sorry! Your request to be a campus ambassador was rejected.
-		Please try next year...
+		Sorry! Your request to be a campus ambassador was not approved.
+		Please try next year.
 	</li>
 	@else
-	Congrats.. You are a campus ambassador for pragyan....
+	Congrats. You are a campus ambassador for pragyan.
 	<li>
 	<a href={{action('TasksController@index')}}>View list of tasks</a>
 	</li>

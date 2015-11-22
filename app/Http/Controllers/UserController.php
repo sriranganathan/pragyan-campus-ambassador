@@ -180,7 +180,7 @@ class UserController extends Controller
     {
         //
         $users = User::orderBy("updated_at", "desc")->paginate(10);
-
+	$users->setPath('users');
         return view('showall', compact('users'));
 
     }
@@ -188,7 +188,7 @@ class UserController extends Controller
     {
         //
         $users = User::where('approved', 0)->orderBy("updated_at", "desc")->paginate(10);
-
+	$users->setPath('new');
         return view('showall', compact('users'));
 
     }
@@ -196,7 +196,7 @@ class UserController extends Controller
     {
         //
         $users = User::where('approved', 1)->orderBy("updated_at", "desc")->paginate(10);
-
+	$users->setPath('approved');
         return view('showall', compact('users'));
 
     }
@@ -205,7 +205,7 @@ class UserController extends Controller
     {
         //
         $users = User::where('approved', 2)->orderBy("updated_at", "desc")->paginate(10);
-
+	$users->setPath('rejected');
         return view('showall', compact('users'));
 
     }
