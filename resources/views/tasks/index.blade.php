@@ -36,11 +36,30 @@
 		<div class="panel-body">
 			<b>Posted on : {{$task->created_at}}</b>
 			<br>
+			<button class= "btn btn-primary" data-toggle="modal" data-target="#modal{{$task->id}}">See description</button>
 			
-			{!! str_replace("\n","<br>", $task->description) !!} 
 
 		</div>
 	</div>
+
+	<div id="modal{{$task->id}}" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">{{$task->title}}</h4>
+      </div>
+      <div class="modal-body">
+       {!! $task->description !!}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 	@endforeach
 	</div>
 {!! $tasks->render() !!}

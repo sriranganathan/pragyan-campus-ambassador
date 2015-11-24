@@ -41,9 +41,30 @@
   <div class="form-group">
     <label class="control-label col-sm-2" for="description"><center>Task Description</center></label>
     <div class="col-sm-10">
-      <textarea class="form-control" name="description" placeholder="Task Description" rows="20" required></textarea>
+      <textarea class="form-control" name="description" id="editor1" placeholder="Task Description" rows="20" required></textarea>
     </div>
   </div>
+
+  <script src={{asset("ckeditor\ckeditor.js")}}></script>
+  <script>
+     CKEDITOR.replace( 'editor1', {
+    on: {
+        instanceReady: function( ev ) {
+            this.enterMode = CKEDITOR.ENTER_BR,
+
+            // Output paragraphs as <p>Text</p>.
+            this.dataProcessor.writer.setRules( 'p', {
+                indent: false,
+                breakBeforeOpen: false,
+                breakAfterOpen: false,
+                breakBeforeClose: false,
+                breakAfterClose: false
+            });
+        }
+    }
+
+});
+  </script>
 
   <div class="form-group">
     <div class="col-sm-6">
