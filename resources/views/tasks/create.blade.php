@@ -45,7 +45,7 @@
     </div>
   </div>
 
-  <script src={{asset("ckeditor\ckeditor.js")}}></script>
+  <script src={{asset("ckeditor/ckeditor.js")}}></script>
   <script>
      CKEDITOR.replace( 'editor1', {
     on: {
