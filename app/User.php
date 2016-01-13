@@ -36,4 +36,9 @@ class User extends Model implements AuthenticatableContract,
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+    public static function checkUnique($ref)
+    {
+        return User::where('referral_code', '=', $ref)->count();
+    }
 }

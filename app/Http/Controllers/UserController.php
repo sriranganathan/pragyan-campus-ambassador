@@ -281,6 +281,32 @@ class UserController extends Controller
         //
     }
 
+
+    public function generate()
+    {
+        $users = User::where('referral_code', '=', '')->get();
+        $list = [];
+        $codes = [];
+        foreach($users as $user)
+        {
+            $flag = 1;
+            while ($flag == 1)
+            {
+                $random = substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, 8);
+                $code = md5(uniqid($user->facebook_user_id.$random, true));
+                $ref_code = substr($code, 0, 8);
+                $flag = User::checkUnique($ref_code);
+            }
+            $user->referral_code = $ref_code;
+
+            $user->save();
+            array_push($list, $user->full_name);
+            array_push($codes, $user->referral_code);
+
+        }
+        return view('admin/generate', array("users"=>$list, "codes"=>$codes));
+
+    }
     /**
      * Remove the specified resource from storage.
      *

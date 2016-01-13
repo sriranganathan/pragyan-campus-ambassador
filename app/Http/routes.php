@@ -19,6 +19,7 @@ Route::post('/admin', 'UserController@adminCheck');
 
 Route::get('/logout', 'UserController@logout');
 
+
 Route::group(['middleware' => 'AdminAuth'], function() {
 
 	Route::get('/admin/dashboard', 'UserController@adminDash');
@@ -34,6 +35,7 @@ Route::group(['middleware' => 'AdminAuth'], function() {
 	Route::get('/tasks/create', "TasksController@create");
 
 	Route::post('/tasks/create', "TasksController@store");
+	Route::get('/generate', 'UserController@generate');
 });
 
 

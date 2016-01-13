@@ -26,28 +26,16 @@
 @section('content')
 	<section class="container content-section">
 	<h3>
-	Hi, Admin
+	Referral codes generated successfully
 	</h3>
-	Here are the list of operations you can do...
-	<li>
-	<a href={{action('TasksController@create')}}>Create new tasks</a>
-	</li>
-
-	<li>
-	<a href={{action('UserController@showNew')}}>Approve/reject users</a>
-	</li>
-
-	<li>
-	<a href={{action('UserController@showApproved')}}>Approved users</a>
-	</li>
-
-	<li>
-	<a href={{action('UserController@showRejected')}}>Rejected users</a>
-	</li>
-
-	<li>
-	<a href={{action('UserController@generate')}}>Generate referral code for users</a>
-	</li>
+	
+	<div class="row">
+		For...<br>
+		@for($i=0; $i<count($users); $i++)
+			<li>{{$users[$i]}} -> {{$codes[$i]}}</li>
+		@endfor
+		
+	</div>
 	</section>
 
 @stop

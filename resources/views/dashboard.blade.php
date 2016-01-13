@@ -26,7 +26,8 @@
 @section('content')
 	<section class="container content-section">
 	<h3>
-	Hi, {{$user->full_name}}
+	Hi, {{$user->full_name}}<br>
+	Your referral_code is {{$user->referral_code}}
 	</h3>
 	@if($user->registration==0)
 	<li>
