@@ -2,6 +2,34 @@
 
 @section('topbar')
 
+<style>
+blockquote {
+    padding: 35px 35px 25px 35px;
+    border: none;
+    quotes: "\201C" "\201D";
+    display: inline-block;
+    position: relative;
+    margin-bottom: 0px;
+}
+
+blockquote:before { 
+    content: open-quote;
+    font-size:2em;
+    font-weight: bold;
+    position:absolute;
+    top:0;
+    left: 0;
+} 
+blockquote:after { 
+    content: close-quote;
+    font-size:2em;
+    font-weight: bold;
+    position:absolute;
+    bottom:0; right: 0;
+}
+
+</style>
+
 <li class="hidden">
     <a href="#page-top"></a>
 </li>
@@ -53,14 +81,16 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
                 <h2>Brief introduction</h2>
-                <p>Pragyan is the annual International Tech-management event conducted by the National
-Institute of Technology Tiruchirappalli. During the month of January or February, students
-from over 150+ colleges around India, make their mark in this event through the various
-Coding, Robotics, Management, Core Engineering, Paper presentations and much more
-events.</p>
-<p>Pragyan this year offers the opportunity for students from colleges around India, to have
-a role that defines the very event manner of Pragyan. A representative from each college
-will be chosen to promote and publicize their college for Pragyan.</p>
+                <blockquote style="text-align:center; font-size:1.45em;">
+                    Innovation needs preparation, collaboration and the light of the soul. Every challenge provides that light - a greater depth of understanding about life and truth.
+                </blockquote>
+                <em><p style="text-align:right">― Amit Ray, Enlightenment Step by Step</p></em>
+                <p style="text-align:justify;">
+                Pragyan Campus Ambassador is an initiative by Pragyan which allows representatives from various colleges to be a part of the organization and help with internal publicity in their respective colleges. It is an opportunity to be a part of a student collaboration that extends all over the country. Furthermore, it helps the students in enhancing their skills in the fields of leadership, publicity, marketing, networking and maintaining public relations at a national level.
+                </p>
+                <p style="text-align:justify;">
+                The tasks given to PCAs include sharing of posters on social media platforms, and they will be judged and rewarded based on their performances, apart from which, a certificate of appreciation shall be given by Pragyan to all the PCAs.
+                </p>
             </div>
         </div>
     </section>
@@ -96,8 +126,8 @@ from across the country.</li>
 publicity, marketing, networking, and maintaining public relations at a national level.</li>
 <li class="yes">Benefits on services such as travels, restaurants, application charges etc. during the
 course of work for the Campus Ambassador program.</li>
-<li class="yes">4 campus ambassador shall be chosen to be the BEST Campus Ambassadors every
-month.</li>
+<li class="yes">4 campus ambassadors shall be chosen to be the BEST Campus Ambassadors every
+month plus a lot more incentives to look forward to.</li>
             </div>
         </div>
     </section>

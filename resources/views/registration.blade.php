@@ -38,9 +38,15 @@
     </div>
   </div>
   <div class="form-group">
-    <label class="control-label col-sm-2" for="city"><center>City</center></label>
+    <label class="control-label col-sm-2" for="roll_no"><center>Roll No</center></label>
     <div class="col-sm-6">
-      <input type="text" class="form-control" name="city" placeholder="City" required>
+      <input type="text" class="form-control" name="roll_no" placeholder="College Roll No" required>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="city"><center>City, State</center></label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" name="city" placeholder="Chennai, State" required>
     </div>
   </div>
 
@@ -66,6 +72,13 @@
   </div>
 
   <div class="form-group">
+    <label class="control-label col-sm-2" for="whats_mobile"><center>WhatsApp Mobile Number</center></label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" name="whatsapp_mobile" placeholder="WhatsApp Mobile Number" pattern=[0-9]{10} required>
+    </div>
+  </div>
+
+  <div class="form-group">
     <label class="control-label col-sm-2" for="email"><center>Email</center></label>
     <div class="col-sm-6">
       <input type="email" class="form-control" name="email" placeholder="Email" required>
@@ -75,7 +88,8 @@
   <div class="form-group">
     <label class="control-label col-sm-2" for="por"><center>Position(s) of responsibility held (if any) </center></label>
     <div class="col-sm-6">
-      <textarea class="form-control" name="por" placeholder="Position(s) of responsibility held (if any) " rows="5"></textarea>
+      <textarea class="form-control" name="por" placeholder="Head of Computer Science Symposium, 
+Member of Coding Club" rows="5"></textarea>
     </div>
   </div>
 

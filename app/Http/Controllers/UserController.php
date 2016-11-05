@@ -143,11 +143,13 @@ class UserController extends Controller
         if(!Session::has('fbid'))
             return redirect('/');
 
+        $roll_no = $request->get('roll_no');
         $college = $request->get('college');
         $city = $request->get('city');
         $dept = $request->get('dept');
         $year = $request->get('year');
         $mobile = $request->get('mobile');
+        $whatsapp_mobile = $request->get('whatsapp_mobile');
         $email = $request->get('email');
         $por = $request->get('por');
         $question = $request->get('question');
@@ -156,11 +158,13 @@ class UserController extends Controller
 
         User::where('facebook_user_id', $fbid)
                 ->update(array(
+                        "roll_no" => $roll_no,
                         "college" => $college,
                         "city" => $city,
                         "dept" => $dept,
                         "year" => $year,
                         "mobile" => $mobile,
+                        "whatsapp_mobile" => $whatsapp_mobile,
                         "por" => $por,
                         "email" => $email,
                         "question" => $question,
